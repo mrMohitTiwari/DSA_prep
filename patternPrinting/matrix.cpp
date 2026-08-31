@@ -10,8 +10,8 @@ int a[n][n];
 for(int i =0;i<n;i++){
     for(int j =0;j<n;j++) {cin>>a[i][j];
 
-    if(i+j==n-1) cout<<a[i][j]<<" ";
-    if(i==j) cout<<a[i][j]<<" ";
+    if(i+j==n-1) op_daig+=a[i][j];
+    if(i==j) P_diag+=a[i][j];
    
     }
 
