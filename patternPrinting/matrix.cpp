@@ -9,12 +9,18 @@ cin>>n;
 int a[n][n];
 for(int i =0;i<n;i++){
     for(int j =0;j<n;j++) {cin>>a[i][j];
-    if(i+j==n) op_daig+=a[i][j];
-    if(i==j) P_diag+=a[i][j];}
+
+    if(i+j==n-1) cout<<a[i][j]<<" ";
+    if(i==j) cout<<a[i][j]<<" ";
+   
+    }
+
 }
 cout<<abs(op_daig-P_diag)<<"\n";
 
+
 }
+
 int main() {
     // Fast I/O Magic Spell
     ios_base::sync_with_stdio(false);
