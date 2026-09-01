@@ -1,33 +1,24 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-bool bet(int n ){
-    while(n){
-        int r = n%10;
-        // cout<<n<<" ";
-       if(!(r==4 || r==7)) return false;
-        n /=10;
-    }
-    return true;
-}
-void solve(){
-int a ,b;
-cin>>a>>b;
-for(int i =a;i<=b;i++){
+#define endl '\n'
+long double PI = acos(-1.0);
 
-    if(bet(i)) cout<<i<<" ";
+void solve(){
+        // calculating the area of the circle
+        long double r; //we are using long double for ultimate precision 
+        cin>>r;
+        cout<<PI*r*r;
 }
-cout<<"\n";
-}
-int main() {
+signed main() {
     // Fast I/O Magic Spell
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
     // Now you can take input safely
-    int t=1;
-    // cin >> t;
-    for(int i=0;i<t;i++){
+    int _t=1;
+    cin >> _t;
+    for(int i=0;i<_t;i++){
     solve();
     }
     return 0;
