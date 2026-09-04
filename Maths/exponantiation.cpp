@@ -1,18 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
-#define long long int
-int exp(int a,int b)
-{
-    if(a==0||b==0)
-    return 1;
-    if(b&1) return a*exp(a,b-1);
-    return exp(a,b/2)*exp(a,b/2);
+#define int long long
+int mod = 1e9+7;
+int exp(int a, int b) {
+    // Corrected base cases
+    if (b == 0) return 1;
+    if (a == 0) return 0;
+    
+    int res = exp(a, b / 2);
+    res = (res * res) % mod;
+    
+    if (b & 1) {
+        res = (res * (a % mod)) % mod;
+    }
+    return res;
 }
 void solve(){
     int a, b;
     cin>>a>>b;
-    cout<<exp(a.b);
+    cout<<exp(a,b)<<endl;
 }
 signed main() {
     // Fast I/O Magic Spell
