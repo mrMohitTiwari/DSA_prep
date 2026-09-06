@@ -11,7 +11,6 @@ void precomute(){
         fact[i] = ((i%mod)*(fact[i-1]%mod))%mod;
     }
 }
-
 int exp(int a,int x){
     int j =a;int prod =1;
     while(x){
