@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define MAX 1000000
+#define MAX 1000001
 #define int long long
 int fact[MAX];
+int inverse[MAX];
 const int mod =1e9+7;
 void precomute(){
     fact[0]=1;
@@ -10,6 +11,7 @@ void precomute(){
         fact[i] = ((i%mod)*(fact[i-1]%mod))%mod;
     }
 }
+
 int exp(int a,int x){
     int j =a;int prod =1;
     while(x){
@@ -22,19 +24,27 @@ int exp(int a,int x){
 int inv(int n){
     return exp(n,mod-2);
 }
+void preInv()
+{
+    inverse[MAX-1] = inv(fact[MAX-1]);
+    for(int i =MAX-2;i>=0;i--){
+        inverse[i] = ((inverse[i+1])*(i+1))%mod;
+    }
+}
 int ncr(int n ,int r)
 {
     if(r==0||r==n) return 1;
-        int ans = ((fact[n]*inv(fact[r])%mod)*inv(fact[n-r])%mod)%mod;
+    if(n<0||r<0||n<r) return 0;
+      int ans = ((fact[n]%mod*(inverse[r])%mod)*inverse[n-r]%mod)%mod;
         return ans;
 
 }
 void solve(){
 int n,r;
 cin>>n>>r;
-if(n>r) cout<<0;
+if(n>r) cout<<"0"<<endl;
 else
-cout<<(ncr(n-1,r-1))<<endl;
+cout<<(ncr(r-1,n-1))<<endl;
 }
 signed main() {
     // Fast I/O Magic Spell
@@ -42,7 +52,7 @@ signed main() {
     cin.tie(NULL);
     cout.tie(NULL);
 precomute();
-    // Now you can take input safely
+preInv()  ;  // Now you can take input safely
     int t=1;
     cin >> t;
     for(int i=0;i<t;i++){
