@@ -1,37 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define endl '\n'
 #define int long long
-int mod = 1e9+7;
-int exp(int a, int b) {
-    // Corrected base cases
-    if (b == 0) return 1;
-    if (a == 0) return 0;
-    
-    int res = exp(a, b / 2);
-    res = (res * res) % mod;
-    
-    if (b & 1) {
-        res = (res * (a % mod)) % mod;
+#define endl '\n'
+
+int exp(int a, int x, int mod)
+{
+    int prod = 1;
+    int j = a;
+    while (x)
+    {
+        if (x & 1)
+            prod = (prod % mod * a % mod) % mod;
+        j = j * j;
+        x = x / 2;
     }
-    return res;
+    return prod;
 }
-void solve(){
-    int a, b;
-    cin>>a>>b;
-    cout<<exp(a,b)<<endl;
+void solve()
+{
+    int a, b, c, p;
+    cin >> a >> b >> c >> p;
+    int res = exp(b, c, p - 1);
+    int ans = exp(a, res, p);
+    cout << exp(0, 0, p) << endl;
 }
-signed main() {
+signed main()
+{
     // Fast I/O Magic Spell
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
 
     // Now you can take input safely
-    int _t=1;
-    cin >> _t;
-    for(int i=0;i<_t;i++){
-    solve();
+    int t = 1;
+    cin >> t;
+    for (int i = 0; i < t; i++)
+    {
+        solve();
     }
     return 0;
 }

@@ -1,22 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define int long long
-int exp(int a, int b, int mod)
+int exp(int a, int x, int mod)
 {
-    // Corrected base cases
-    if (b == 0)
-        return 1;
-    if (a == 0)
-        return 0;
-
-    int res = exp(a, b / 2, mod);
-    res = (res * res) % mod;
-
-    if (b & 1)
+// iterative method for the calcualtion of binary exponentiation 
+int j = a;
+int prod =1;
+while(x){
+    if(x%2)
     {
-        res = (res * (a % mod)) % mod;
+        
     }
-    return res;
+}
+
+
 }
 int sol(int a, int b, int c, int p)
 {
@@ -24,19 +21,18 @@ int sol(int a, int b, int c, int p)
         return 0;
     if (!b && c)
         return 1;
-    if (b && !c)
-        return a;
-    if (a && b && c && !(a % p))
+    if (!a&& !(a % p))
         return 0;
     // using ferment's little thm
     int ans = exp(b, c, p - 1);
-
+    return exp(a, ans, p);
 }
 void solve()
 {
     int a, b, c, p;
     cin >> a >> b >> c >> p;
-        
+
+    cout << sol(a, b, c, p) << endl;
 }
 signed main()
 {
