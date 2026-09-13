@@ -5,9 +5,11 @@ using namespace std;
 void solve(){
     // use of next_permutation
     // let us create a vector and see what will be the next permutation 
-    vector<int> v= {1,2,3};
+    // vector<int> v= {1,2,3};
+    vector<int> v= {3,2,1}; //it will not have any next permutation so it will return false
     do{
         for(int x:v) cout<<x<<" ";
+        cout<<"\n";
 
     }while(next_permutation(v.begin(),v.end()));
 }
