@@ -3,7 +3,7 @@ using namespace std;
 #define endl '\n'
 #define int long long
 
-void solve() 
+void solve()
 {
     int n;
     cin >> n;
@@ -31,13 +31,13 @@ void solve()
             mn = min(mn, x);
         }
     }
-    if(abs(mn-mx)==0) {
-        cout<<0<<" "<<(n*(n-1))/2<<endl;
+    if (abs(mn - mx) == 0)
+    {
+        cout << 0 << " " << (n * (n - 1)) / 2 << endl;
         return;
     }
- 
-    cout << abs(mn - mx) << " " << mnc*mxc << endl;
 
+    cout << abs(mn - mx) << " " << mnc * mxc << endl;
 }
 signed main()
 {
