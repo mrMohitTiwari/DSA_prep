@@ -1,48 +1,48 @@
-// https://codeforces.com/problemset/problem/2267/C
 #include <bits/stdc++.h>
 using namespace std;
 #define endl '\n'
-vector<int> primeCal(int n)
+#define int long long
+const int MAXN=1000000;
+int spf[MAXN+1];
+void precomp()
 {
-    vector<bool> primes(n+1, true);
-    primes[0] = primes[1] = false;
-    for (int i = 2; i*i <= n; i++)
+    // making all numbers as prime
+    for(int i=0;i<=MAXN;i++)
+    spf[i]=i;
+    // modification of seive of erosthenesis
+    for(int i =2;i<=MAXN;i++)
     {
-        if (primes[i])
-        {
-            for (int j = 2* i;  j <= n; j+=i)
-            {
-                primes[j] = false;
+        if(spf[i]==i){
+            for(int j =2*i;j<=MAXN;j+=i){
+                if(spf[j]==j) spf[j]=i;
             }
         }
     }
-    vector<int> ans;
-    for(int i =0;i<=n;i++){
-        if(primes[i]) ans.push_back(i);
-    }
 
-   
-    return ans;
 }
-void solve()
-{
-    int n, x;
-    cin >> n >> x;
-    vector<int> p(n);
-    for (int i = 0; i < n; i++)
-        cin >> p[i];
-    vector<int> prime = primeCal(x);
-         int cs,ms;
-        cs = ms=0;
-       for(int x:prime){
-        for(int i=0;i<n;i++){
-            if(p[i]%x==0) cs+=p[i];
+void solve(){
+    int n ,x;
+    cin>>n>>x;
+    vector<int> a(n); for(int i =0;i<n;i++)
+    cin>>a[i];
+    set<int> pr_factor;
+
+        while(x>1){
+           pr_factor.insert(spf[x ]);
+            x= x/spf[x];
         }
-        ms = max(cs,ms);
-        cs =0;
-       }
-       cout<<ms<<endl;
-}
+        int cs,ms;cs=ms=0;
+        for(int x:pr_factor){
+            cs=0;
+                for(int i =0;i<n;i++){
+                    if(a[i]%x==0) cs+=a[i];
+                }
+                ms = max(ms,cs);
+
+        }
+        cout<<ms<<endl;
+
+    }
 signed main()
 {
     // Fast I/O Magic Spell
@@ -52,6 +52,7 @@ signed main()
 
     // Now you can take input safely
     int _t = 1;
+precomp();
     cin >> _t;
     for (int i = 0; i < _t; i++)
     {
