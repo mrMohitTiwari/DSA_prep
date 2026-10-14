@@ -48,17 +48,21 @@ start = max(p * p, start);
 
 
     }
-    cout<<"Printing all the primes in the range"<<l<<" "<<r<<endl;
+
+    vector<int> primes;
     for (int i = 0; i <= r- l; i++) {
         if (isPrime[i]) {
-            cout << i + l<< " ";
+            primes.push_back(i+l);
+
         }
-    }
+    }cout<<primes.size()<<endl;
+    for(int x :primes)
+    cout<<x<<" ";
     cout<<endl;
 }
 signed main() {
   int l ,r;
-  cout<<"Enter the low and the high limit"<<endl;
+
   cin>>l>>r;
     segmentedSeive(l,r);
 
