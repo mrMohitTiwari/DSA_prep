@@ -8,7 +8,7 @@ bool check(vt &v, int time, int t)
     int prod = 0;
     for (int x : v)
     {
-        prod += time/x;
+        prod += time / x;
         if (prod >= t)
             return true;
     }
@@ -18,7 +18,7 @@ void solve()
 {
     int n, t;
     cin >> n >> t;
-   vt a(n);
+    vt a(n);
     int mn = INT_MAX;
     for (int i = 0; i < n; i++)
     {
