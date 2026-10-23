@@ -7,7 +7,8 @@ void printChar(int r, int c, int i, int j)
     and same thing we can do with it like if need to print pattern above it > < can be used
     line k neeche jaana h to i> uppar jaana h to <
     */
-  if(i+j==c-1) cout<<"* ";
+  if(i+j==c-2) cout<<"* ";
+//   if(i+j==c-1) cout<<"* ";
   else cout<<". ";
 
 }

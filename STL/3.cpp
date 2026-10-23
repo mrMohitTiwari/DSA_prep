@@ -4,18 +4,11 @@ using namespace std;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    int a[] = {8, 4, 2, 6};
-    // since cycle is repating after every 4th
-    if (n == 0)
-    {
-        cout << 1 << endl;
-    }
-    else
-    {
-        cout << a[(n-1) % 4] << endl;
-    }
+    // here will know how to use min_element() algo
+    vector<int> v = {1, 2, 3, 45, 0, -1};
+    auto it = min_element(v.begin(), v.end());
+    cout << *it << endl;            // will give min element
+    cout << it - v.begin() << endl; // it will return the index
 }
 signed main()
 {

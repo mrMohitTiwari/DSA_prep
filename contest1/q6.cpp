@@ -52,6 +52,8 @@ signed main() {
     cout.tie(NULL);
 precomute();
 preInv()  ;  // Now you can take input safely
+
+
     int t=1;
     cin >> t;
     for(int i=0;i<t;i++){

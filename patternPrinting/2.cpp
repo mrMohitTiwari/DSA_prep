@@ -9,7 +9,7 @@ void printChar(int r, int c, int i, int j)
 // else cout<<". ";
 // shifting the line by 1 unit
 // subtracting some constant from j will shift diagonal line upward and addition downward
-if(i==j-2) cout<<"* ";
+if(i==j+3) cout<<"* ";
 
 else cout<<". ";
 /*

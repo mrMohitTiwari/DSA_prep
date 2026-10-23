@@ -4,7 +4,7 @@ using namespace std;
 #define int long long 
 int gcd(int a,int b){
     if(b>a) swap(a,b);
-    while(!b) {
+    while(b) {
         int rem = a%b;
         a = b;
         b = rem;
